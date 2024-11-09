@@ -1,9 +1,9 @@
 <html><head><base href="." />
 <style>
-body {
+body
   margin: 0;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  color: #e3e3e3;
+  color:red 
   font-family: Arial, sans-serif;
   overflow: hidden;
 }
@@ -226,51 +226,4 @@ function rotate() {
     rotated.push([]);
     for(let j = currentPiece.blocks.length - 1; j >= 0; j--) {
       rotated[i].push(currentPiece.blocks[j][i]);
-    }
-  }
-  
-  const oldBlocks = currentPiece.blocks;
-  currentPiece.blocks = rotated;
-  if(collision(currentPiece, 0, 0)) {
-    currentPiece.blocks = oldBlocks;
-  }
-  drawBoard();
-}
-
-document.addEventListener('keydown', (e) => {
-  switch(e.key) {
-    case 'ArrowLeft':
-      if(!collision(currentPiece, -1, 0)) {
-        currentPiece.x--;
-        drawBoard();
-      }
-      break;
-    case 'ArrowRight':
-      if(!collision(currentPiece, 1, 0)) {
-        currentPiece.x++;
-        drawBoard();
-      }
-      break;
-    case 'ArrowDown':
-      moveDown();
-      break;
-    case 'ArrowUp':
-      rotate();
-      break;
-  }
-});
-
-// Initialize game
-currentPiece = createPiece();
-nextPiece = createPiece();
-drawNextPiece();
-
-// Game loop
-setInterval(() => {
-  moveDown();
-}, 1000 - (level - 1) * 50);
-
-// Initial draw
-drawBoard();
-</script>
-</body></html>
+    
